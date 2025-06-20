@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Title Updated -->
+    <title>Admin Home | Library Management System</title>
+
+    <!-- Bootstrap & Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <style>
+        /* 🔹 Global Coffee-Themed Styling */
+        body {
+            background: linear-gradient(to bottom right, #C0A080, #A67B5B);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #5E4033; /* Coffee-Themed Text Color */
+        }
+
+        /* 🔹 Navbar Styling */
+        .navbar {
+            background-color: #5D4037 !important; /* Dark Coffee Brown */
+            padding: 15px;
+        }
+
+        .navbar a {
+            color: white !important;
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .navbar .dropdown-menu {
+            background-color: white !important;
+            border: none;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .dropdown-item {
+            color: black !important;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .navbar .dropdown-item:hover {
+            background-color: #8D6E63; /* Lighter Coffee Brown */
+            color: white !important;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* 🔹 Jumbotron Styling */
+        .jumbotron {
+            background: #D7B899; /* Light Coffee Background */
+            padding: 40px;
+            border-radius: 10px;
+            width: 80%;
+            margin: 20px auto; /* Centered */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            color: #5E4033; /* Coffee-Themed Text */
+        }
+
+        .jumbotron p {
+            color: #5E4033;
+        }
+
+        /* 🔹 Coffee-Themed Alert Box */
+        .alert {
+            background: #8D6E63 !important; /* Coffee Brown */
+            color: white !important;
+            font-size: 18px;
+            text-align: center;
+            padding: 15px;
+            border: none;
+            width: 80%;
+            margin: 40px auto 20px; /* Spaced Below Navbar */
+            border-radius: 10px;
+        }
+
+        /* 🔹 Admin Options Buttons */
+        .options a {
+            width: 250px;
+            margin: 10px auto;
+            display: block;
+            background: #5D4037; /* Dark Coffee Brown */
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .options a:hover {
+            background: #8D6E63; /* Lighter Coffee Brown on Hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🔹 Navbar -->
+    {% include "library/navbaradmin.html" %}
+
+    <br><br>
+
+    <!-- 🔹 Welcome Alert Box -->
+    <center>
+        <h3 class="alert">📚 Welcome to Online Library!</h3>
+    </center>
+
+    <!-- 🔹 Jumbotron Section -->
+    <div class="jumbotron">
+        <h1 class="display-4">
+            Hello, {{ user.first_name|default:"Admin" }}!
+        </h1>
+        <p class="lead">
+            As an <strong>Admin</strong>, you can manage the library, add books, issue books, and oversee student activities.
+        </p>
+        <hr class="my-4">
+        <p>Options Available For You</p>
+
+        <!-- 🔹 Admin Actions -->
+        <div class="options text-center">
+            <a href="{% url 'addbook' %}">Add Book To Library</a>
+            <a href="{% url 'view_books' %}">View Available Books</a>
+            <a href="{% url 'issuebook' %}">Issue New Book</a>
+            <a href="{% url 'viewissuedbook' %}">View Issued Books</a>
+            <a href="{% url 'viewstudent' %}">View Students</a>
+        </div>        
+    </div>
+
+    <!-- 🔹 Footer -->
+    {% include "library/footer.html" %}
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Return Book | Library Management System</title>
+
+    <!-- 🔹 Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- 🔹 jQuery & Bootstrap Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* 🔹 Coffee-Themed Background */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #D7B899, #A67B5B);
+            color: #5E4033;
+            padding-top: 80px; /* Ensures content is below the navbar */
+        }
+
+        /* 🔹 Jumbotron Styling */
+        .jumbotron {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 80%;
+            margin: 40px auto;
+        }
+
+        /* 🔹 Coffee-Themed Buttons */
+        .btn-brown {
+            background-color: #8D6E63;
+            border: none;
+            color: white;
+            transition: 0.3s ease-in-out;
+        }
+
+        .btn-brown:hover {
+            background-color: #6D4C41;
+        }
+
+        /* 🔹 Coffee-Themed Input Field */
+        .form-control {
+            border: 2px solid #8D6E63;
+            border-radius: 5px;
+        }
+
+        /* 🔹 Alert Box Styling */
+        .alert {
+            background-color: #8D6E63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "library/navbar.html" %}
+
+    <div class="container">
+        <center>
+            <h3>📚 Return a Book</h3>
+        </center>
+
+        <div class="jumbotron">
+            <h1 class="display-4">Return a Book</h1>
+            <p class="lead">Enter the book's ISBN or select the book from the list to return it.</p>
+            <hr class="my-4">
+
+            <!-- ✅ Display success/error messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form action="{% url 'return_book' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="isbn">📖 Book ISBN:</label>
+                    <input type="text" class="form-control" id="isbn" name="isbn" placeholder="Enter ISBN" required>
+                </div>
+                <button type="submit" class="btn btn-brown">Return Book</button>
+            </form>
+        </div>
+    </div>
+
+    {% include "library/footer.html" %}
+
+</body>
+</html>

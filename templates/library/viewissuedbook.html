@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Issued Books | Library Management System</title>
+
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* 🔹 Coffee-Themed Background */
+        body {
+            background: linear-gradient(to bottom, #D7B899, #A67B5B);
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 🔹 Centered Container */
+        .container {
+            flex-grow: 1;
+            width: 85%;
+            margin: auto;
+            text-align: center;
+            padding-bottom: 50px; /* Prevent footer overlap */
+        }
+
+        /* 🔹 Alert Box */
+        .alert {
+            margin-top: 60px;
+            font-weight: bold;
+            background-color: #8D6E63;
+            color: white;
+            border: none;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+        }
+
+        /* 🔹 Table Styling */
+        table.redTable {
+            border: 2px solid #5E4033;
+            background-color: #EEE7DB;
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table.redTable td, table.redTable th {
+            border: 1px solid #AAAAAA;
+            padding: 12px;
+        }
+
+        table.redTable tbody td {
+            font-size: 16px;
+        }
+
+        table.redTable tr:nth-child(even) {
+            background: #F5C8BF;
+        }
+
+        table.redTable thead {
+            background: #5E4033;
+            color: white;
+            font-size: 18px;
+        }
+
+        table.redTable tfoot {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: #5E4033;
+        }
+
+        /* 🔹 Delete Button */
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 7px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+
+        /* 🔹 Footer Stays at Bottom */
+        .footer {
+            background-color: #5E4033;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include "library/navbaradmin.html" %}  <!-- Navbar -->
+
+    <div class="container">
+        <h3 class="alert">📚 Issued Books to Students</h3>
+
+        {% if li %}
+        <table class="redTable">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Student Enrollment</th>
+                    <th>Book Name</th>
+                    <th>Book Author</th>
+                    <th>Issue Date</th>
+                    <th>Expiry Date</th>
+                    <th>Fine</th>
+                    <th>Action</th> <!-- Delete Column -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in li %}
+                <tr>
+                    <td>{{ t.0 }}</td>
+                    <td>{{ t.1 }}</td>
+                    <td>{{ t.2 }}</td>
+                    <td>{{ t.3 }}</td>
+                    <td>{{ t.4 }}</td>
+                    <td>{{ t.5 }}</td>
+                    <td>{{ t.6 }}</td>
+                    <td>
+                        <a href="{% url 'delete_issued_book' t.1 %}" class="delete-btn">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="8">Total Issued Books: {{ li|length }}</td>
+                </tr>
+            </tfoot>
+        </table>
+        {% else %}
+        <h1 class="text-muted text-center mt-4">No books issued</h1>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        {% include "library/footer.html" %}  <!-- Footer -->
+    </div>
+
+</body>
+</html>

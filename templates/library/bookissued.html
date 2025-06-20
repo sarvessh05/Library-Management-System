@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- 🔹 Title Updated -->
+    <title>Book Issued | Library Management System</title>
+
+    <!-- 🔹 Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <style>
+        /* 🔹 Page Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #D7B899, #A67B5B); /* Coffee-themed background */
+            color: #5E4033;
+            text-align: center;
+        }
+
+        /* 🔹 Alert Box (Matches Jumbotron Width) */
+        .alert-success {
+            background-color: #8D6E63 !important; /* Coffee Brown */
+            color: white !important;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            width: 60%; /* Same width as jumbotron */
+            margin: 40px auto 20px !important;
+            border-radius: 12px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            border: none !important;
+        }
+
+        /* 🔹 Jumbotron - Translucent Background */
+        .jumbotron {
+            background: rgba(255, 255, 255, 0.85) !important; /* Translucent white */
+            padding: 30px;
+            border-radius: 12px;
+            width: 60%;
+            margin: 30px auto;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .jumbotron p {
+            color: #5E4033 !important; /* Dark Brown Font */
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        /* 🔹 Button Styling */
+        .btn-coffee {
+            background-color: #8D6E63; /* Coffee Brown */
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            border: none;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .btn-coffee:hover {
+            background-color: #6D4C41; /* Darker Coffee Brown */
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 🔹 Navbar -->
+    {% include "library/navbaradmin.html" %}
+    <br><br>
+
+    <!-- 🔹 Alert Box -->
+    <h3 class="alert alert-success">📚 Book Issued Successfully!</h3>
+
+    <!-- 🔹 Jumbotron Content -->
+    <div class="jumbotron">
+        <p>The book has been successfully issued to the student.</p>
+        <p>Choose your next action:</p>
+        <a href="issuebook" class="btn-coffee">Issue Another Book</a>
+        <br><br>
+        <a href="viewissuedbook" class="btn-coffee">View Issued Books</a>
+    </div>
+
+    <!-- 🔹 Footer -->
+    {% include "library/footer.html" %}
+
+</body>
+</html>

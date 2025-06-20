@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student | Library Management System</title>
+
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* 🔹 Coffee-Themed Background */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #D7B899, #A67B5B);
+            color: #5E4033;
+            padding-top: 80px; /* Prevents content from being hidden by the navbar */
+        }
+
+        /* 🔹 Jumbotron Styling */
+        .custom-jumbotron {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            margin: 40px auto;
+        }
+
+        .custom-jumbotron h1,
+        .custom-jumbotron p {
+            color: #5E4033;
+        }
+
+        /* 🔹 Alert Box */
+        .alert {
+            background: #8D6E63 !important;
+            color: white !important;
+            font-size: 18px;
+            text-align: center;
+            padding: 15px;
+            border: none;
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        /* 🔹 Button Styling */
+        .btn-custom {
+            background-color: #8D6E63 !important;
+            border: none !important;
+            font-size: 18px;
+            padding: 12px 25px;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+            margin: 10px;
+        }
+
+        .btn-custom:hover {
+            background-color: #6D4C41 !important;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "library/navbar.html" %} <!-- Navbar -->
+
+    <!-- Alert Box -->
+    <div class="alert">
+        📚 Welcome to the Online Library Management System!
+    </div>
+
+    <div class="custom-jumbotron">
+        <h1 class="display-4">Hello, Student!</h1>
+        <p class="lead">Welcome to the Online Library Management System.</p>
+        <hr class="my-4">
+        <p>You can access various features after logging in or signing up.</p>
+        
+        <!-- 🔹 Button Group -->
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-6">
+                <a href="{% url 'studentsignup' %}" class="btn btn-custom btn-block">📝 Sign Up</a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="{% url 'studentlogin' %}" class="btn btn-custom btn-block">🔑 Login</a>
+            </div>
+        </div>
+    </div>
+
+    {% include "library/footer.html" %} <!-- Footer -->
+
+</body>
+</html>

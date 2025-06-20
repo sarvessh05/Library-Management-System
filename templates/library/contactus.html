@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- 🔹 Title Updated -->
+    <title>Contatct Us | Library Management System</title>
+
+    <!-- 🔹 Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* 🔹 Coffee-Themed Background */
+        body {
+            background: linear-gradient(to bottom right, #C0A080, #A67B5B);
+            font-family: 'Roboto', sans-serif;
+            color: #5E4033; /* Coffee Text Color */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 🔹 Navbar Styling */
+        .navbar {
+            background-color: #5D4037 !important; /* Dark Coffee Brown */
+            padding: 15px;
+        }
+
+        .navbar a {
+            color: white !important;
+            font-size: 16px;
+        }
+
+        .navbar .dropdown-menu {
+            background-color: white !important;
+            border: none;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .dropdown-item {
+            color: black !important;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .navbar .dropdown-item:hover {
+            background-color: #8D6E63; /* Lighter Coffee Brown */
+            color: white !important;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* 🔹 Alert Box */
+        .alert {
+            background: #8D6E63 !important; /* Coffee Brown */
+            color: white !important;
+            font-size: 18px;
+            text-align: center;
+            padding: 15px;
+            border: none;
+            width: 80%;
+            margin: 80px auto 20px; /* Forced Down */
+            border-radius: 10px;
+        }
+
+        /* 🔹 Contact Form Box */
+        .contact-form {
+            background: #D7B899; /* Coffee-Themed Background */
+            padding: 30px;
+            border-radius: 10px;
+            width: 50%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        /* 🔹 Coffee-Themed Button */
+        .btn-coffee {
+            background: white; /* Default White */
+            color: #5D4037; /* Dark Coffee Brown Text */
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: 2px solid #5D4037; /* Brown Border */
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .btn-coffee:hover {
+            background: #5D4037; /* Dark Coffee Brown */
+            color: white;
+        }
+
+        /* 🔹 Form Input Styling */
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #8D6E63;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🔹 Navbar -->
+    {% include "library/navbar.html" %}
+
+    <!-- 🔹 Alert Box -->
+    <div class="alert">📩 Send Us Your Valuable Feedback!</div>
+
+    <!-- 🔹 Contact Form -->
+    <div class="contact-form">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+                <br>
+                <input type="submit" value="Send Message" class="btn btn-coffee btn-lg">
+            </div>
+        </form>
+    </div>
+
+    <!-- 🔹 Footer -->
+    {% include "library/footer.html" %}
+
+</body>
+</html>

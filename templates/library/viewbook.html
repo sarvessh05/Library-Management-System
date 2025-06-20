@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>View Available Books | Library Management System</title>
+
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* 🔹 Coffee-Themed Background */
+        body {
+            background: linear-gradient(to bottom, #D7B899, #A67B5B);
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 🔹 Centered Container */
+        .container {
+            flex-grow: 1;
+            width: 85%;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* 🔹 Alert Box */
+        .alert {
+            margin-top: 60px;
+            font-weight: bold;
+            background-color: #8D6E63;
+            color: white;
+            border: none;
+            font-size: 20px;
+            padding: 15px;
+        }
+
+        /* 🔹 Table Styling */
+        table.redTable {
+            border: 2px solid #5E4033;
+            background-color: #EEE7DB;
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table.redTable td, table.redTable th {
+            border: 1px solid #AAAAAA;
+            padding: 12px;
+        }
+
+        table.redTable tbody td {
+            font-size: 16px;
+        }
+
+        table.redTable tr:nth-child(even) {
+            background: #F5C8BF;
+        }
+
+        table.redTable thead {
+            background: #5E4033;
+            color: white;
+            font-size: 18px;
+        }
+
+        table.redTable tfoot {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: #5E4033;
+        }
+
+        /* 🔹 Delete Button Styling */
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 7px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+
+        /* 🔹 Footer Stays at Bottom */
+        .footer {
+            background-color: #5E4033;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include "library/navbaradmin.html" %}  <!-- Navbar -->
+
+    <div class="container">
+        <h3 class="alert">📚 Available Books in Library</h3>
+
+        {% if books %}
+        <table class="redTable">
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>ISBN</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Action</th> <!-- Delete Button Column -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.category }}</td>
+                    <td>
+                        <form action="{% url 'delete_book' book.id %}" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-btn" onclick="return confirm('Are you sure you want to delete this book?');">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">Total Books: {{ books|length }}</td>
+                </tr>
+            </tfoot>
+        </table>
+        {% else %}
+        <h1 class="text-muted text-center mt-4">No books available</h1>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        {% include "library/footer.html" %}  <!-- Footer -->
+    </div>
+
+</body>
+</html>

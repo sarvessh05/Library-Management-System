@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student Home | Library Management System</title>
+
+    <!-- 🔹 Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- 🔹 jQuery & Bootstrap Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* 🔹 Coffee-Themed Background */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #D7B899, #A67B5B);
+            color: #5E4033;
+            padding-top: 80px; /* Prevents content from being hidden by the navbar */
+        }
+
+        /* 🔹 Jumbotron Styling */
+        .jumbotron {
+            width: 85%;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            color: #4E342E;
+            font-weight: bold;
+        }
+
+        .jumbotron p {
+            font-size: 18px;
+            color: #6D4C41;
+        }
+
+        /* 🔹 Alert Box */
+        .alert {
+            font-weight: normal;
+            background-color: #8D6E63;
+            color: white;
+            border: none;
+            width: 80%;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+
+        /* 🔹 Button Styling */
+        .btn-custom {
+            font-size: 16px;
+            font-weight: bold;
+            background: #8D6E63 !important; /* Coffee Brown */
+            border: none !important;
+            min-width: 220px;
+            color: white !important;
+            padding: 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+            margin: 10px;
+        }
+
+        .btn-custom:hover {
+            background: #6D4C41 !important; /* Darker Brown */
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "library/navbarstudent.html" %}
+
+    <!-- Alert Box -->
+    <div class="alert">
+        📚 Welcome to the Online Library!
+    </div>
+
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, {{ user.first_name }}!</h1>
+        <p class="lead">
+            As a student, you can check the books you have borrowed, manage your to-read list, and return books.
+        </p>
+        <hr class="my-4">
+        <p>📌 Options Available for You:</p>
+
+        <!-- 🔹 Button Grid (Responsive) -->
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-6">
+                <a href="viewissuedbookbystudent" class="btn btn-custom d-block">📖 View Issued Books</a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="view_available_books" class="btn btn-custom d-block">📚 View Available Books</a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="view_to_read_list" class="btn btn-custom d-block">📜 View To-Read List</a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="returnbook" class="btn btn-custom d-block">🔄 Return a Book</a>
+            </div>
+        </div>
+    </div>
+
+    {% include "library/footer.html" %}
+</body>
+</html>

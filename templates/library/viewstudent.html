@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Registered Students | Library Management System</title>
+
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        /* 🔹 Coffee-Themed Background */
+        body {
+            background: linear-gradient(to bottom, #D7B899, #A67B5B);
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 🔹 Centered Container */
+        .container {
+            flex-grow: 1;
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            padding-bottom: 50px; /* Prevent footer overlap */
+        }
+
+        /* 🔹 Alert Box */
+        .alert {
+            margin-top: 60px;
+            font-weight: bold;
+            background-color: #8D6E63;
+            color: white;
+            border: none;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+        }
+
+        /* 🔹 Table Styling */
+        table.redTable {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border: 2px solid #5E4033;
+            background-color: #EEE7DB;
+        }
+
+        table.redTable th, table.redTable td {
+            border: 1px solid #AAAAAA;
+            padding: 12px;
+        }
+
+        table.redTable th {
+            background: #5E4033;
+            color: white;
+            font-size: 18px;
+        }
+
+        table.redTable tbody td {
+            font-size: 16px;
+        }
+
+        table.redTable tr:nth-child(even) {
+            background: #F5C8BF;
+        }
+
+        /* 🔹 Footer Stays at Bottom */
+        .footer {
+            background-color: #5E4033;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include "library/navbaradmin.html" %}  <!-- Navbar -->
+
+    <div class="container">
+        <h3 class="alert">📚 Students Registered in Library</h3>
+
+        {% if students %}
+        <table class="redTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Enrollment</th>
+                    <th>Branch</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in students %}
+                <tr>
+                    <td>{{ s.user.first_name }} {{ s.user.last_name }}</td>
+                    <td>{{ s.enrollment }}</td>
+                    <td>{{ s.branch }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h3 class="text-muted text-center mt-4">No students registered yet.</h3>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        {% include "library/footer.html" %}  <!-- Footer -->
+    </div>
+
+</body>
+</html>

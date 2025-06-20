@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>About Us | Library Management System</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- jQuery and Popper.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <style>
+        /* Coffee-themed background */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #D7B899, #A67B5B); /* Gradient from light to dark coffee */
+            color: #5E4033; /* Dark Brown Font */
+        }
+
+        /* Jumbotron styling */
+        .jumbotron {
+            background: rgba(255, 255, 255, 0.85); /* Translucent white */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 80%;
+            margin: 40px auto;
+            color: #4E342E; /* Dark Brown Text */
+        }
+
+        /* Styled primary button */
+        .btn-primary {
+            background: #A67B5B !important; /* Coffee Brown */
+            border: none !important;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #6D4C41 !important; /* Darker Brown */
+            color: white;
+        }
+
+        /* Coffee-Themed Alert Box */
+        .alert-box {
+            position: relative;
+            top: 25px;
+            background: #8D6E63 !important; /* Coffee Brown */
+            color: white !important;
+            font-size: 18px;
+            text-align: center;
+            padding: 15px;
+            border: none;
+            width: 80%;
+            margin: 10px auto;
+            border-radius: 10px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar for Admin -->
+    {% include "library/navbaradmin.html" %}
+
+    <br><br>
+    
+    <!-- About Us Header -->
+    <center>
+        <h3 class="alert-box"> 📚 About Us </h3>
+    </center>
+
+    <!-- Jumbotron Content -->
+    <div class="jumbotron">
+        <h1 class="display-4" style="color: #3E2723;">Hello, Reader!</h1>
+        <p class="lead" style="color: #4E342E;">
+            A dedicated service for both Admin and Students, offering online resources, expert support, 
+            and guidance—accessible anytime, anywhere, to enhance the learning experience.
+        </p>
+        <hr class="my-4">
+        <p style="color: #4E342E;">Explore our Website.</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
+        </p>
+    </div>
+
+    <!-- Footer -->
+    {% include "library/footer.html" %}
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

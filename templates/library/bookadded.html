@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- 🔹 Title Updated -->
+    <title>Book Added | Library Management System</title>
+
+    <!-- 🔹 Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* 🔹 Full Page Layout */
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #D7B899, #A67B5B); /* Coffee-themed gradient */
+            color: #5E4033;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 🔹 Alert Box - Properly Visible & Centered */
+        .alert {
+            background: #8D6E63 !important; /* Coffee Brown */
+            color: white !important;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px;
+            border: none;
+            width: 80%;
+            max-width: 600px; /* Keeps it centered */
+            text-align: center;
+            border-radius: 10px;
+            margin: 80px auto 20px auto; /* Moves it just below navbar */
+        }
+
+        /* 🔹 Content Wrapper */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* 🔹 Button Styles */
+        .options {
+            margin-top: 20px; /* Balanced spacing */
+        }
+
+        .options .btn {
+            background: #6D4C41 !important;
+            color: white !important;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 5px;
+            width: 300px;
+            display: block;
+            margin: 15px auto;
+            text-decoration: none;
+        }
+
+        .options .btn:hover {
+            background: #4E342E !important;
+        }
+
+        /* 🔹 Footer Stays at Bottom */
+        .footer {
+            background: #5E4033;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 🔹 Navbar -->
+    {% include "library/navbaradmin.html" %}
+
+    <!-- 🔹 Alert Box (Fully Visible and Centered) -->
+    <div class="alert">📚 Book Added Successfully!</div>
+
+    <!-- 🔹 Action Buttons -->
+    <div class="content">
+        <div class="options">
+            <a href="addbook" class="btn">➕ Add Another Book</a>
+            <a href="viewbook" class="btn">📖 View Books in Library</a>
+        </div>
+    </div>
+
+    <!-- 🔹 Footer (Stays at Bottom) -->
+    <div class="footer">
+        {% include "library/footer.html" %}
+    </div>
+</body>
+</html>

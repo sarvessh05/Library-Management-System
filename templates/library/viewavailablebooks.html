@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Available Books | Library Management System</title>
+
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* 🔹 Coffee-Themed Background */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #D7B899, #A67B5B);
+            color: #5E4033;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 🔹 Centered Container */
+        .container {
+            margin-top: 60px;
+            flex-grow: 1;
+        }
+
+        /* 🔹 Jumbotron */
+        .jumbotron {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .jumbotron h2 {
+            color: #3E2723;
+            border-bottom: 3px solid #A1887F;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        /* 🔹 Table Styling */
+        .table {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .table th {
+            background-color: #6D4C41;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .table td {
+            color: #5E4033;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        /* 🔹 Button Styling */
+        .btn-custom {
+            background: #8D6E63 !important;
+            color: white !important;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-custom:hover {
+            background: #6D4C41 !important;
+        }
+
+        /* 🔹 Footer Stays at Bottom */
+        footer {
+            background: #5E4033;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include "library/navbarstudent.html" %}  <!-- Navbar -->
+
+    <div class="container">
+        <div class="jumbotron">
+            <h2 class="mb-4">📚 Available Books</h2>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.isbn }}</td>
+                        <td>
+                            <a href="{% url 'add_to_read_list' book.id %}" class="btn btn-custom">Add to Read List</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">No available books at the moment.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% include "library/footer.html" %}  <!-- Footer -->
+
+</body>
+</html>
