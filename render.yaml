@@ -7,10 +7,10 @@ services:
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: librarymanagement.settings
-      - key: PYTHON_VERSION
-        value: 3.10
       - key: DJANGO_SECRET_KEY
         value: your-secret-key-here
       - key: DJANGO_DEBUG
         value: False
+      - key: PYTHON_VERSION
+        value: 3.10
     staticPublishPath: staticfiles
