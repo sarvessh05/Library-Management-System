@@ -1,30 +1,123 @@
-📚 Library Management System
-A robust web-based Library Management System built with Python (Django) that simplifies library operations for both librarians and users. With an intuitive HTML-based frontend and SQLite3 as the database engine, the system enables seamless book management, user roles, and issue-return workflows.
+# 📚 Library Management System
 
-🛠 Tech Stack
-Backend: Python, Django
+A Django-based web application to manage library operations such as student registrations, book issue/return tracking, and admin-level controls — all through a responsive and secure interface.
 
-Frontend: HTML, CSS (optionally Tailwind/Bootstrap)
+---
 
-Database: SQLite3 (default with Django)
+## 🚀 Features
 
-🚩 Features
-🔹 Book Management
-    → Add, update, delete, or view books with real-time availability tracking.
+- 👤 **Student & Admin Login**
+- 📚 **Book Inventory Management**
+- 🔄 **Issue / Return Book Tracking**
+- 🔐 **Authentication & Authorization**
+- 📩 **Email Notifications (configurable)**
+- 📊 **Dashboard for Admin Overview**
+- 📅 **Due Date Management**
 
-🔹 User Roles
-    → Separate interfaces for Admins (Librarians) and Members.
-    → Admins can manage books and users.
-    → Members can view, request, and return books.
+---
 
-🔹 Issue & Return System
-    → Handles book issuing with due date tracking.
-    → Tracks returned books and calculates overdue fines if applicable.
+## 🛠 Tech Stack
 
-🔹 Authentication
-    → Secure login/logout system for members and staff.
-    → Session-based authentication using Django’s auth framework.
+- **Backend**: Django 3.2+
+- **Frontend**: HTML, CSS, Bootstrap
+- **Database**: SQLite (default), configurable to PostgreSQL
+- **Deployment**: Render
 
-🔹 Dashboard
-    → Clean admin dashboard showing current status, recent activity, and overdue books.
+---
 
+## 📂 Project Structure
+
+```
+Library-Management-System/
+│
+├── library/                   # App for core library logic
+├── librarymanagement/        # Django project settings and URLs
+├── templates/                # HTML templates
+├── static/                   # Static assets (CSS, JS, images)
+├── db.sqlite3                # SQLite database
+├── manage.py                 # Django project manager
+├── requirements.txt          # Python package requirements
+└── README.md                 # Project documentation
+```
+
+---
+
+## ⚙️ Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/Library-Management-System.git
+   cd Library-Management-System
+   ```
+
+2. **Create a virtual environment**
+   ```bash
+   python -m venv env
+   source env/bin/activate  # On Windows: env\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Apply migrations**
+   ```bash
+   python manage.py migrate
+   ```
+
+5. **Create a superuser**
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. **Run the server**
+   ```bash
+   python manage.py runserver
+   ```
+
+7. **Access the app**
+   Open `http://127.0.0.1:8000` in your browser.
+
+---
+
+## 🌐 Deployment on Render
+
+Make sure you:
+
+- Set environment variable `DJANGO_SETTINGS_MODULE=librarymanagement.settings`
+- Use `gunicorn librarymanagement.wsgi:application` as start command
+- Set Python version (e.g., 3.10)
+- Add `staticfiles` as the static publish path
+- Collect static files before deployment:
+  ```bash
+  python manage.py collectstatic
+  ```
+
+---
+
+## 📧 Email Configuration (Optional)
+
+To enable email notifications (e.g., for password reset), configure these in `settings.py`:
+
+```python
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_email@gmail.com'
+EMAIL_HOST_PASSWORD = 'your_password'
+```
+
+---
+
+## 🧾 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙋‍♂️ Author
+
+Made with ❤️ by **Sarvesh Ghotekar**  
+Feel free to connect on [LinkedIn](https://www.linkedin.com/in/sarveshghotekar/) or contact page on my portfolio https://sarvessh05.github.io/Portfolio/
