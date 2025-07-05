@@ -120,4 +120,4 @@ This project is licensed under the [MIT License](LICENSE).
 ## 🙋‍♂️ Author
 
 Made with ❤️ by **Sarvesh Ghotekar**  
-Feel free to connect on [LinkedIn](https://www.linkedin.com/in/sarveshghotekar/) or contact page on my portfolio https://sarvessh05.github.io/Portfolio/
+Feel free to connect on [LinkedIn](https://www.linkedin.com/in/sarveshghotekar/) or [contact](https://sarvessh05.github.io/Portfolio/contact.html) page on my [portfolio](https://sarvessh05.github.io/Portfolio/))
